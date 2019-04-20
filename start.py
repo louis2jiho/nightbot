@@ -28,7 +28,7 @@ async def on_message(message):
     if message.content == '!명령어':
         await client.send_message(channel, '!제작자 - 제작자의 닉네임을 알려 줍니다')
     if message.content == '!제작자':
-        await client.send_message(channel, '안녕하세요! Jiho Night ')
+        await client.send_message(channel, '안녕하세요! Jiho Night 입니다')
         
 
 access_token = os.environ["BOT_TOKEN"]
