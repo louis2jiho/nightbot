@@ -1,5 +1,6 @@
-import asyncio
+
 import discord
+import os
 
 client = discord.Client()
 
@@ -27,6 +28,6 @@ async def on_message(message):
     if message.content == '!커맨드2':
         await client.send_message(channel, '커맨드2')
 
+access_token = os.environ["BOT_TOKEN"]
 
-
-client.run(token)
+client.run(access_token)
