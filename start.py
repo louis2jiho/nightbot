@@ -7,6 +7,7 @@ import bs4
 import json
 import time
 import datetime
+import os
 
 client = discord.Client()
 
