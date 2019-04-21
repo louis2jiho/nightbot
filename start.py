@@ -31,7 +31,7 @@ async def on_message(message):
         if message.content.startswith("==모두모여"):
         await client.send_message(channel, "@everyone")
 
-    if message.content.startswith("==들어와"):
+    if message.content. == '==in':
         server = message.server
         voice_client = client.voice_client_in(server)
         print("들어와")
@@ -46,7 +46,7 @@ async def on_message(message):
 
 
 
-    if message.content.startswith("==나가"):
+    if message.content == ==out':
             server = message.server
             voice_client = client.voice_client_in(server)
             print("나가")
@@ -60,7 +60,7 @@ async def on_message(message):
                 await voice_client.disconnect()
 
 
-    if message.content.startswith("==재생"):
+    if message.content == '==play':
 
         server = message.server
         voice_client = client.voice_client_in(server)
@@ -74,31 +74,12 @@ async def on_message(message):
         player.start()
 
 
-
-
-    if message.content.startswith("==일시정지"):
-        id = message.server.id
-        await client.send_message(channel, embed=discord.Embed(description="장비를 정비합니다"))
-        players[id].pause()
-
-    if message.content.startswith("==다시재생"):
-        id = message.server.id
-        await client.send_message(channel, embed=discord.Embed(description="다시재생한다!!!!"))
-        players[id].resume()
-
-    if message.content.startswith("==멈춰"):
+    if message.content == '==stop':
         id = message.server.id
         await client.send_message(channel, embed=discord.Embed(description="세계의 시간은 멈춰있다..."))
         players[id].stop()
         print(players[id].is_playing())
 
-    if message.content.startswith('==예약'):
-        msg1 = message.content.split(" ")
-        url = msg1[1]
-        server = message.server
-        voice_client = client.voice_client_in(server)
-        player = await voice_client.create_ytdl_player(url, after=lambda: check_queue(server.id))
-        print(player)
 
         if server.id in queues:
             queues[server.id].append(player)
@@ -110,7 +91,7 @@ async def on_message(message):
         musiclist.append(url) #대기목록 링크
 
 
-    if message.content.startswith('==대기목록'):
+    if message.content == '==list':
 
         server = message.server
         msg1 = message.content.split(" ")
