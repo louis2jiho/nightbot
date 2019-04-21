@@ -29,20 +29,19 @@ async def on_message(message):
     if message.content == '==제작자':
         await client.send_message(channel, '안녕하세요! Jiho Night 입니다')
         if message.content.startswith("==모두모여"):
-        await client.send_message(message.channel, "@everyone")
+        await client.send_message(channel, "@everyone")
 
     if message.content.startswith("==들어와"):
-        channel = message.author.voice.voice_channel
         server = message.server
         voice_client = client.voice_client_in(server)
         print("들어와")
         print(voice_client)
         print("들어와")
         if voice_client== None:
-            await client.send_message(message.channel, '들어왔습니다') # 호오.... 나를 부르는건가? 네녀석.. 각오는 되있겠지?
+            await client.send_message(channel, '들어왔습니다') # 호오.... 나를 부르는건가? 네녀석.. 각오는 되있겠지?
             await client.join_voice_channel(channel)
         else:
-            await client.send_message(message.channel, '봇이 이미 들어와있습니다.') # 응 이미 들어와있어 응쓰게싸
+            await client.send_message(channel, '봇이 이미 들어와있습니다.') # 응 이미 들어와있어 응쓰게싸
 
 
 
@@ -54,10 +53,10 @@ async def on_message(message):
             print(voice_client)
             print("나가")
             if voice_client == None:
-                await client.send_message(message.channel,'봇이 음성채널에 접속하지 않았습니다.') # 원래나가있었음 바보녀석 니녀석의 죄는 "어리석음" 이라는 .것.이.다.
+                await client.send_message(channel,'봇이 음성채널에 접속하지 않았습니다.') # 원래나가있었음 바보녀석 니녀석의 죄는 "어리석음" 이라는 .것.이.다.
                 pass
             else:
-                await client.send_message(message.channel, '나갑니다') # 나가드림
+                await client.send_message(channel, '나갑니다') # 나가드림
                 await voice_client.disconnect()
 
 
@@ -70,7 +69,7 @@ async def on_message(message):
         player = await voice_client.create_ytdl_player(url, after=lambda: check_queue(server.id))
         print(player.is_playing())
         players[server.id] = player
-        await client.send_message(message.channel, embed=discord.Embed(description="재생한다!!!!"))
+        await client.send_message(channel, embed=discord.Embed(description="재생한다!!!!"))
         print(player.is_playing())
         player.start()
 
@@ -79,17 +78,17 @@ async def on_message(message):
 
     if message.content.startswith("==일시정지"):
         id = message.server.id
-        await client.send_message(message.channel, embed=discord.Embed(description="장비를 정비합니다"))
+        await client.send_message(channel, embed=discord.Embed(description="장비를 정비합니다"))
         players[id].pause()
 
     if message.content.startswith("==다시재생"):
         id = message.server.id
-        await client.send_message(message.channel, embed=discord.Embed(description="다시재생한다!!!!"))
+        await client.send_message(channel, embed=discord.Embed(description="다시재생한다!!!!"))
         players[id].resume()
 
     if message.content.startswith("==멈춰"):
         id = message.server.id
-        await client.send_message(message.channel, embed=discord.Embed(description="세계의 시간은 멈춰있다..."))
+        await client.send_message(channel, embed=discord.Embed(description="세계의 시간은 멈춰있다..."))
         players[id].stop()
         print(players[id].is_playing())
 
@@ -128,7 +127,7 @@ async def on_message(message):
             for i in musiclist:
                 print('예약리스트 : ' + i)
                 embed.add_field(name='대기중인 곡', value=i, inline=False)
-            await client.send_message(message.channel, embed=embed)
+            await client.send_message(channel, embed=embed)
 
         if mList =='취소':
             while num<bSize:
@@ -136,7 +135,7 @@ async def on_message(message):
                 num = num+1
 
             del queues[server.id]
-            await client.send_message(message.channel,'예약중인 음악 모두 취소 완료')
+            await client.send_message(channel,'예약중인 음악 모두 취소 완료')
 
         #if message.content.startswith('!'):
 
