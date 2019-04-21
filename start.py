@@ -1,7 +1,6 @@
 import discord
 import random
 import openpyxl
-from urllib.request import urlopen, Request
 import urllib
 import urllib.request
 import bs4
