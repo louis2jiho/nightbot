@@ -1,18 +1,11 @@
-    
 import discord
-import asyncio
 import random
 import openpyxl
-import youtube_dl
 from urllib.request import urlopen, Request
 import urllib
 import urllib.request
 import bs4
-import 급식
-import os
-import sys
 import json
-from selenium import webdriver
 import time
 import datetime
 
