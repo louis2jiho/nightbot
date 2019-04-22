@@ -24,6 +24,34 @@ async def on_message(message):
 
     if message.content == '안녕하세요':
 	    await client.send_message(channel, '안녕하세요 ==명령어 한번씩 쳐주세요')
+    if message.content == '안녕':
+	    await client.send_message(channel, '안녕하세요 ==명령어 한번씩 쳐주세요')
+    if message.content == 'ㅎㅇ':
+	    await client.send_message(channel, '안녕하세요 ==명령어 한번씩 쳐주세요')
+    if message.content == 'ㅎㅇ요':
+	    await client.send_message(channel, '안녕하세요 ==명령어 한번씩 쳐주세요')
+    if message.content == '하이요':
+	    await client.send_message(channel, '안녕하세요 ==명령어 한번씩 쳐주세요')
+    if message.content == '하이':
+	    await client.send_message(channel, '안녕하세요 ==명령어 한번씩 쳐주세요')
+    if message.content == 'hi':
+	    await client.send_message(channel, '안녕하세요 ==명령어 한번씩 쳐주세요')
+
+    if message.content == '안녕하세요!:
+	    await client.send_message(channel, '안녕하세요 ==명령어 한번씩 쳐주세요')
+    if message.content == '안녕!:
+	    await client.send_message(channel, '안녕하세요 ==명령어 한번씩 쳐주세요')
+    if message.content == 'ㅎㅇ!:
+	    await client.send_message(channel, '안녕하세요 ==명령어 한번씩 쳐주세요')
+    if message.content == 'ㅎㅇ요!:
+	    await client.send_message(channel, '안녕하세요 ==명령어 한번씩 쳐주세요')
+    if message.content == '하이요!:
+	    await client.send_message(channel, '안녕하세요 ==명령어 한번씩 쳐주세요')
+    if message.content == '하이!:
+	    await client.send_message(channel, '안녕하세요 ==명령어 한번씩 쳐주세요')
+    if message.content == 'hi!:
+	    await client.send_message(channel, '안녕하세요 ==명령어 한번씩 쳐주세요')
+		
     if message.content == '==명령어':
 	    await client.send_message(channel,'==제작자 , ==')
     if message.content == '==제작자':
