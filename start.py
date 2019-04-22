@@ -39,7 +39,7 @@ async def on_message(message):
 	    await client.send_message(channel,'==제작자 , ==모두모여')
     if message.content == '==제작자':
 	    await client.send_message(channel, '안녕하세요! Jiho Night 입니다')
-    if message == '==모두모여':
+    if message.content == '==모두모여':
 	    await client.send_message(channel, "@everyone")
 
 
