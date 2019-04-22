@@ -1,6 +1,7 @@
 import discord
 import os
 import youtube_dl
+import re
 
 client = discord.Client()
 
