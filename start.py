@@ -24,30 +24,30 @@ async def on_message(message):
     id = message.author.id
     channel = message.channel
 
-if message.content == '안녕하세요':
-	await client.send_message(channel, '안녕하세요 ==명령어 한번씩 쳐주세요')
-if message.content == '==명령어':
-	await client.send_message(channel,'==제작자')
-if message.content == '==제작자':
-	await client.send_message(channel, '안녕하세요! Jiho Night 입니다')
-if message == '==모두모여':
-	await client.send_message(channel, "@everyone")
+	if message.content == '안녕하세요':
+		await client.send_message(channel, '안녕하세요 ==명령어 한번씩 쳐주세요')
+	if message.content == '==명령어':
+		await client.send_message(channel,'==제작자')
+	if message.content == '==제작자':
+		await client.send_message(channel, '안녕하세요! Jiho Night 입니다')
+	if message == '==모두모여':
+		await client.send_message(channel, "@everyone")
 	
-if message.content == '==음악': #음성채널에 봇을 추가 및 음악 재생
-	msg = message.content.split(" ")
-	try:
-		url = msg[1]
-		url1 = re.match('(https?://)?(www\.)?((youtube\.(com))/watch\?v=([-\w]+)|youtu\.be/([-\w]+))', url) #정규 표현식을 사용해 url 검사
-		if url1 == None:
-			await client.send_message(message.channel, embed=discord.Embed(title=":no_entry_sign: url을 제대로 입력해주세요.",colour = 0x2EFEF7))
+	if message.content == '==음악': #음성채널에 봇을 추가 및 음악 재생
+		msg = message.content.split(" ")
+		try:
+			url = msg[1]
+			url1 = re.match('(https?://)?(www\.)?((youtube\.(com))/watch\?v=([-\w]+)|youtu\.be/([-\w]+))', url) #정규 표현식을 사용해 url 검사
+			if url1 == None:
+				await client.send_message(message.channel, embed=discord.Embed(title=":no_entry_sign: url을 제대로 입력해주세요.",colour = 0x2EFEF7))
+				return
+		except IndexError:
+			await client.send_message(message.channel, embed=discord.Embed(title=":no_entry_sign: url을 입력해주세요.",colour = 0x2EFEF7))
 			return
-	except IndexError:
-		await client.send_message(message.channel, embed=discord.Embed(title=":no_entry_sign: url을 입력해주세요.",colour = 0x2EFEF7))
-		return
 
-	channel = message.author.voice.voice_channel 
-	server = message.server
-	voice_client = client.voice_client_in(server)
+		channel = message.author.voice.voice_channel 
+		server = message.server
+		voice_client = client.voice_client_in(server)
 
 	if client.is_voice_connected(server) and not playerlist[server.id].is_playing(): #봇이 음성채널에 접속해있으나 음악을 재생하지 않을 때
 		await voice_client.disconnect()
