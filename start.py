@@ -85,7 +85,7 @@ async def on_message(message):
          return
       player.start()
 
-   if message.content == "!종료": #음성채널에서 봇을 나가게 하기
+   if message.content == "!음악 종료": #음성채널에서 봇을 나가게 하기
       server = message.server
       voice_client = client.voice_client_in(server)
 
@@ -96,7 +96,7 @@ async def on_message(message):
       await client.send_message(message.channel, embed=discord.Embed(title=":mute: 채널에서 나갑니다.",colour = 0x2EFEF7)) #봇이 음성채널에 접속해있을 때
       await voice_client.disconnect()
 
-   if message.content == "!스킵":
+   if message.content == "!음악 스킵":
       id = message.server.id
       if not playerlist[id].is_playing(): #재생 중인 음악이 없을 때
          await client.send_message(message.channel, embed=discord.Embed(title=":no_entry_sign: 스킵할 음악이 없어요.",colour = 0x2EFEF7))
@@ -104,7 +104,7 @@ async def on_message(message):
       await client.send_message(message.channel, embed=discord.Embed(title=":mute: 스킵했어요.",colour = 0x2EFEF7))
       playerlist[id].stop()
    
-   if message.content == "!목록":
+   if message.content == "!음악 목록":
 
       if playlist == []:
          await client.send_message(message.channel, embed=discord.Embed(title=":no_entry_sign: 재생목록이 없습니다.",colour = 0x2EFEF7))
