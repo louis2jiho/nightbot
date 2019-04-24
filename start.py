@@ -49,7 +49,7 @@ async def on_message(message):
             async for x in client.logs_from(message.channel, limit = number+1):
                 mgs.append(x)
             await client.delete_messages(mgs)
-            delembed = discord.Embed(title=메세지 삭제됨",color=0x4286f4)
+            await client.send_message(channel, '매시지 ')
             delmsg = await client.send_message(channel,embed = delembed)
             await asyncio.sleep(5)
             await client.delete_message(delmsg)
